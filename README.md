@@ -127,9 +127,13 @@ NAT обычно работает на границе, где локальная
 <details>
 <summary>Практическая часть</summary>
 
-1. Добавляем в [vagrantfile](vagrantfile) недостающие ВМ: Office1serv, Office1router, Office2router, Office2server
-2. Убираем NAT на всех узлах, кроме Inetrouter
-3. Добавляем в конфигурацию интерфейсов ВМ шлюзы
+1. Добавил в [vagrantfile](vagrantfile) недостающие ВМ: Office1serv, Office1router, Office2router, Office2server
+2. Убирал NAT на всех узлах, кроме Inetrouter
+3. Добавил в конфигурацию интерфейсов ВМ шлюзы
+4. Сгруппировал хосты для работы с ансибл в [inventory](inventory)
+5. Создал роль [tcp](roles/tcp)
+
+
 
 
 </details>
