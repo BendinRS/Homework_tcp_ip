@@ -1,0 +1,4 @@
+---
+# vars file for all
+
+server_name: ["inetRouter","centralRouter","centralServer","office1Router","office1Server","office2Router","office2Server"]
