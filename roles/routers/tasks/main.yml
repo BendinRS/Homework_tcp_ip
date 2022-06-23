@@ -27,6 +27,13 @@
 
   - name: restart iptables service
     service:
+      become: yes
       name: iptables
       state: restarted 
     when: (ansible_hostname == "inetRouter")
+
+  - name: set up forward packages across routers
+    sysctl:
+      name: net.ipv4.conf.all.forwarding
+      value: '1'
+      state: present
