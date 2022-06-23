@@ -17,8 +17,13 @@
       mode: 0600
     when: (ansible_hostname == "inetRouter")
     
-  - name: start and enable iptables service
+  - name: enable iptables service
     service:
       name: iptables
       enabled: yes
+    when: (ansible_hostname == "inetRouter")
+  - name: start iptables service
+    service:
+      name: iptables
+      state: started  
     when: (ansible_hostname == "inetRouter")
