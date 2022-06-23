@@ -10,7 +10,6 @@
         - nano
     when: (ansible_hostname == "all")
 
-
   - name: install iptables
     yum:
       state: present
