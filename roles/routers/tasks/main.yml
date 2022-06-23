@@ -17,6 +17,7 @@
     
   - name: enable iptables service
     service:
+      become: yes
       name: iptables
       state: started 
       enabled: yes
