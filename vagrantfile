@@ -19,8 +19,8 @@ MACHINES = {
                    {ip: '192.168.10.1', adapter: 3, netmask: "255.255.255.240", virtualbox__intnet: "dir-net"},
                    {ip: '192.168.10.33', adapter: 4, netmask: "255.255.255.240", virtualbox__intnet: "hw-net"},
                    {ip: '192.168.10.65', adapter: 5, netmask: "255.255.255.192", virtualbox__intnet: "mgt-net"},
-                   {ip: '192.168.255.11', adapter: 6, netmask: "255.255.255.252", virtualbox__intnet: "office1-central"},
-                   {ip: '192.168.255.6', adapter: 7, netmask: "255.255.255.252", virtualbox__intnet: "office2-central"},
+                   {ip: '192.168.255.9', adapter: 6, netmask: "255.255.255.252", virtualbox__intnet: "office1-central"},
+                   {ip: '192.168.255.5', adapter: 7, netmask: "255.255.255.252", virtualbox__intnet: "office2-central"},
                    {ip: '192.168.50.11', adapter: 8},
                 ]
   },
@@ -56,7 +56,7 @@ MACHINES = {
         :box_name => "centos/7",
         :vm_name => "office2Router",
         :net => [
-              {ip: '192.168.255.7', adapter: 2, netmask: "255.255.255.252", virtualbox__intnet: "office2-central"},
+              {ip: '192.168.255.6', adapter: 2, netmask: "255.255.255.252", virtualbox__intnet: "office2-central"},
               {ip: '192.168.3.1', adapter: 3, netmask: "255.255.255.128", virtualbox__intnet: "dev2-net"},
               {ip: '192.168.3.129', adapter: 4, netmask: "255.255.255.192", virtualbox__intnet: "test2-net"},
               {ip: '192.168.3.193', adapter: 5, netmask: "255.255.255.192", virtualbox__intnet: "office2-net"},
@@ -119,7 +119,7 @@ Vagrant.configure("2") do |config|
           when "office1Router"
             box.vm.provision "shell", run: "always", inline: <<-SHELL
               echo "DEFROUTE=no" >> /etc/sysconfig/network-scripts/ifcfg-eth0 
-              echo "GATEWAY=192.168.255.11" >> /etc/sysconfig/network-scripts/ifcfg-eth1
+              echo "GATEWAY=192.168.255.9" >> /etc/sysconfig/network-scripts/ifcfg-eth1
               systemctl restart network
               SHELL
           when "office1Server"
@@ -131,7 +131,7 @@ Vagrant.configure("2") do |config|
           when "office2Router"
             box.vm.provision "shell", run: "always", inline: <<-SHELL
               echo "DEFROUTE=no" >> /etc/sysconfig/network-scripts/ifcfg-eth0 
-              echo "GATEWAY=192.168.255.6" >> /etc/sysconfig/network-scripts/ifcfg-eth1
+              echo "GATEWAY=192.168.255.5" >> /etc/sysconfig/network-scripts/ifcfg-eth1
               systemctl restart network
               SHELL
           when "office2Server"
