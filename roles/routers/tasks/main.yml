@@ -14,9 +14,10 @@
       src: ./files/iptables
       dest: /etc/sysconfig/iptables
     when: (ansible_hostname == "inetRouter")
+
     
   - name: iptables-save
-    shell: iptables-save > /etc/sysconfig/iptables
+    shell: iptables-save >> /etc/sysconfig/iptables
     when: (ansible_hostname == "inetRouter")
 
   - name: enable iptables service
