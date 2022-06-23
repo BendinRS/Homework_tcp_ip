@@ -32,3 +32,15 @@
       name: net.ipv4.conf.all.forwarding
       value: '1'
       state: present
+
+  - name: deisable default route
+    lineinfile:
+      dest: /etc/sysconfig/network-scripts/ifcfg-eth0
+      line: DEFROUTE=no
+    when: (ansible_hostname == "centralRouter")
+
+  - name: add default gateway for centralRouter
+    lineinfile:
+      dest: /etc/sysconfig/network-scripts/ifcfg-eth1
+      line: GATEWAY=192.168.255.1
+    when: (ansible_hostname == "centralRouter")

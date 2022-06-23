@@ -3,3 +3,8 @@
   become: true
   roles:
     - routers
+
+- hosts: all
+  become: true
+  roles:
+    - all
