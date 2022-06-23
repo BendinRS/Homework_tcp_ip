@@ -9,11 +9,11 @@
         - iptables-services
     when: (ansible_hostname == "inetRouter")
 
-  - name: copy iptables config
-    template:
-      src: ./files/iptables
-      dest: /etc/sysconfig/iptables
-    when: (ansible_hostname == "inetRouter")
+  # - name: copy iptables config
+  #   template:
+  #     src: ./files/iptables
+  #     dest: /etc/sysconfig/iptables
+  #   when: (ansible_hostname == "inetRouter")
 
     
   - name: iptables-save
