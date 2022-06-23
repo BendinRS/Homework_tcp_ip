@@ -1,7 +1,7 @@
 ---
 # tasks file for all
 
-  - name: deisable default route
+  - name: disable default route
     lineinfile:
       dest: /etc/sysconfig/network-scripts/ifcfg-eth0
       line: DEFROUTE=no
