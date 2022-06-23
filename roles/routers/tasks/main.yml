@@ -19,7 +19,7 @@
     
   - name: start and enable iptables service
     service:
-     name: iptables
-     state: started
-     enabled: true
-     when: (ansible_hostname == "inetRouter")
+      name: iptables
+      enabled: yes
+      state: started
+    when: (ansible_hostname == "inetRouter")
