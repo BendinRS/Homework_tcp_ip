@@ -20,9 +20,6 @@
     template:
       src: ./files/iptables
       dest: /etc/sysconfig/iptables
-      owner: root
-      group: root
-      mode: 0600
     when: (ansible_hostname == "inetRouter")
 
 
