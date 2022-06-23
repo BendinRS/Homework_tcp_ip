@@ -17,7 +17,7 @@
     
   - name: enable iptables service
     service:
-      become: yes
+      become: daemon_reload
       name: iptables
       state: started 
       enabled: yes
