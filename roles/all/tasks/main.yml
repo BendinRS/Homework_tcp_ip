@@ -1,6 +1,11 @@
 ---
 # tasks file for all
 
+  - name: install epel-release
+    yum:
+      state: present
+      name:
+        - epel-release
 
   - name: install tcpdump && nano
     yum:

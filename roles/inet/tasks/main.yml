@@ -17,5 +17,5 @@
   - name: start and enable iptables service
     service:
       name: iptables
-      state: restarted
+      state: started
       enabled: true
