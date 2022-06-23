@@ -21,5 +21,4 @@
     service:
       name: iptables
       enabled: yes
-      state: started
     when: (ansible_hostname == "inetRouter")
