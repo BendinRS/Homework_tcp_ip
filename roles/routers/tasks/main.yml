@@ -16,6 +16,7 @@
     when: (ansible_hostname == "inetRouter")
     
   - name: enable iptables service
+    become_user: root
     service:
       name: iptables
       state: started 
