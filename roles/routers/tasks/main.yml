@@ -1,8 +1,7 @@
 ---
 # tasks file for routers
-  - name: Set up NAT on inetRouter
-    block:
-    - name: install iptables
+
+  - name: install iptables
     yum:
       name:
       - iptables
