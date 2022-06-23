@@ -10,7 +10,7 @@
       update_cache: true
   - name: copy iptables config
     template:
-    src: iptables
+    src: ./files/iptables
     dest: /etc/sysconfig/iptables
     owner: root
     group: root
