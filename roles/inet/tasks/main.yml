@@ -1,12 +1,14 @@
 ---
 # tasks file for inet
 
-  - name: http | install iptables
+  - name: http | install packages
     yum:
       state: present
       name:
         - iptables
         - iptables-services
+        - tcpdump
+        - nano
 
   - name: copy iptables config
     template:

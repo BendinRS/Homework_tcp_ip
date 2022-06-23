@@ -1,0 +1,8 @@
+
+inetRouter                running (virtualbox)
+centralRouter             running (virtualbox)
+centralServer             running (virtualbox)
+office1Router             running (virtualbox)
+office1Server             running (virtualbox)
+office2Router             running (virtualbox)
+office2Server             running (virtualbox)
