@@ -61,4 +61,10 @@
       dest: /etc/sysconfig/network-scripts/route-eth1
     when: (ansible_hostname == "office1Server")
 
+  - name: restart network
+    service:
+      name: network
+      state: restarted 
+
+
 
