@@ -43,9 +43,10 @@
   #     state: restarted
   #   when: (ansible_hostname == "inetRouter")
 
-  - name: net.ipv4.conf.all.forwarding
-    value: '1'
-    state: present
+  - name: set up forward packages across routers
+    sysctl:
+      name: net.ipv4.conf.all.forwarding
+      value: '1'
+      state: present
     when: "'routers' in group_names"
-
 
