@@ -1,14 +1,9 @@
-- name: setup all
-  hosts: all
-  become: yes
-  roles:
-    - all
+# - name: setup all
+#   hosts: all
+#   become: yes
+#   roles:
+#     - all
   
-- name: setup inet
-  hosts: inet  
-  become: yes
-  roles:
-    - inet
 
 - name: setup routers
   hosts: routers  
