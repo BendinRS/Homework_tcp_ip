@@ -8,7 +8,7 @@
       name:
         - tcpdump
         - nano
-    when: (ansible_hostname == "all")
+    when: (ansible_hostname == "inetRouter")
 
   - name: install iptables
     yum:
