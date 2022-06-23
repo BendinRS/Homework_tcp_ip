@@ -82,6 +82,18 @@
       dest: /etc/sysconfig/network-scripts/route-eth1
     when: (ansible_hostname == "office2Server")
 
+  - name: copy route_office1Router
+    template:
+      src: ./files/office1Router
+      dest: /etc/sysconfig/network-scripts/route-eth1
+    when: (ansible_hostname == "office1Router")
+
+  - name: copy route_office1Server
+    template:
+      src: ./files/office1Server
+      dest: /etc/sysconfig/network-scripts/route-eth1
+    when: (ansible_hostname == "office1Server")
+
 
 
 
