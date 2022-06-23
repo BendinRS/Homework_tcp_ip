@@ -7,14 +7,10 @@
       name:
         - iptables
         - iptables-services
+        - tcpdump
+        - nano
     when: (ansible_hostname == "inetRouter")
     
-  - name: enable iptables service
-    shell: systemctl enable iptables
-    when: (ansible_hostname == "inetRouter")
-  - name: start  iptables service
-    shell: systemctl start iptables
-    when: (ansible_hostname == "inetRouter")
 
   - name: copy iptables config
     template:
