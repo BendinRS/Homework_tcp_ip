@@ -1,51 +1,17 @@
----
-# tasks file for all
+- name: setup all
+  hosts: all
+  become: yes
+  roles:
+    - all
+  
+- name: setup inet
+  hosts: inet  
+  become: yes
+  roles:
+    - inet
 
-
-  - name: install tcpdump && nano
-    yum:
-      state: present
-      name:
-        - tcpdump
-        - nano
-    when: (ansible_hostname == "all")
-
-
-  - name: install iptables
-    yum:
-      state: present
-      name:
-        - iptables
-        - iptables-services
-    when: (ansible_hostname == "inetRouter")
-    
-
-  - name: copy iptables config
-    template:
-      src: ./files/iptables
-      dest: /etc/sysconfig/iptables
-    when: (ansible_hostname == "inetRouter")
- 
-  - name: start and enable iptables service
-    service:
-      name: iptables
-      state: restarted
-      enabled: true
-    when: (ansible_hostname == "inetRouter")
- 
-  # - name: restart  iptables service
-  #   shell: systemctl restart iptables
-  #   when: (ansible_hostname == "inetRouter")
-
-  # - name: start and enable iptables service
-  #   service:
-  #     name: iptables
-  #     state: restarted
-  #   when: (ansible_hostname == "inetRouter")
-
-  - name: net.ipv4.conf.all.forwarding
-    value: '1'
-    state: present
-    when: "'routers' in group_names"
-
-
+- name: setup routers
+  hosts: routers  
+  become: yes
+  roles:
+    - routers

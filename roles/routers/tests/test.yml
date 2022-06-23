@@ -1,5 +1,5 @@
 ---
-- hosts: inet
+- hosts: routers
   become: true
   roles:
-    - inet
+    - routers
