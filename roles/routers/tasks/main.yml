@@ -1,4 +1,13 @@
 ---
+  - name: copy iptables config
+    template:
+      src: ./files/iptables
+      dest: /etc/sysconfig/iptables
+      owner: root
+      group: root
+      mode: 0600
+    when: (ansible_hostname == "inetRouter")
+    
   - name: install packages
     yum:
       state: present
@@ -16,14 +25,6 @@
       enabled: yes
     when: (ansible_hostname == "inetRouter")
 
-  - name: copy iptables config
-    template:
-      src: ./files/iptables
-      dest: /etc/sysconfig/iptables
-      owner: root
-      group: root
-      mode: 0600
-    when: (ansible_hostname == "inetRouter")
 
   - name: restart iptables service
     shell: systemctl restart iptables
