@@ -17,21 +17,11 @@
     
   - name: enable iptables service
     service:
-      become: daemon_reload
       name: iptables
       state: started 
       enabled: yes
     when: (ansible_hostname == "inetRouter")
   
-  - name: fix
-    shell: echo "#" >> /etc/sysconfig/iptables
-    when: (ansible_hostname == "inetRouter")
-
-  - name: enable iptables service
-    service:
-      name: iptables
-      state: restarted 
-    when: (ansible_hostname == "inetRouter")
 
   - name: set up forward packages across routers
     sysctl:
