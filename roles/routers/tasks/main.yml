@@ -45,3 +45,44 @@
       dest: /etc/sysconfig/network-scripts/ifcfg-eth1
       line: GATEWAY=192.168.255.1
     when: (ansible_hostname == "centralRouter")
+
+  - name: copy route_inetRouter
+    template:
+      src: ./files/inetRouter
+      dest: /etc/sysconfig/network-scripts/route-eth1
+    when: (ansible_hostname == "inetRouter")
+
+  - name: copy route_centralServer
+    template:
+      src: ./files/centralServer
+      dest: /etc/sysconfig/network-scripts/route-eth1
+    when: (ansible_hostname == "centralServer")
+ 
+  - name: copy route_centralRouter5
+    template:
+      src: ./files/centralRouter5
+      dest: /etc/sysconfig/network-scripts/route-eth5
+    when: (ansible_hostname == "centralRouter")
+
+  - name: copy route_centralRouter6
+    template:
+      src: ./files/centralRouter6
+      dest: /etc/sysconfig/network-scripts/route-eth6
+    when: (ansible_hostname == "centralRouter")
+
+  - name: copy route_office2Router
+    template:
+      src: ./files/office2Router
+      dest: /etc/sysconfig/network-scripts/route-eth1
+    when: (ansible_hostname == "office2Router")
+
+  - name: copy route_office2Server
+    template:
+      src: ./files/office2Server
+      dest: /etc/sysconfig/network-scripts/route-eth1
+    when: (ansible_hostname == "office2Server")
+
+
+
+
+
