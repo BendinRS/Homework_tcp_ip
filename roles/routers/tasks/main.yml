@@ -26,11 +26,7 @@
     when: (ansible_hostname == "inetRouter")
 
   - name: restart iptables service
-    service:
-      become: yes
-      name: iptables
-      state: restarted 
-    when: (ansible_hostname == "inetRouter")
+    shell: systemctl restart iptables
 
   - name: set up forward packages across routers
     sysctl:
